@@ -1,0 +1,5 @@
+docker run \
+  -v "$(pwd)":/app \
+  -it \
+  sorare_stefano \
+  irb -I. -r ./lib/merkle_tree.rb -r ./lib/merkle_utils.rb

@@ -1,0 +1,5 @@
+docker run \
+  -v "$(pwd)":/app \
+  -it \
+  sorare_stefano \
+  rspec -I. $@

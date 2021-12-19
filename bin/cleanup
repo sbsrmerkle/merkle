@@ -1,0 +1,2 @@
+docker ps -aq --filter ancestor=sorare_stefano | xargs docker rm
+docker image rm sorare_stefano
