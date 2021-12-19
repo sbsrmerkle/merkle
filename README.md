@@ -35,6 +35,7 @@ Using docker
 
 ```sh
 # create the docker image
+# Make sure to run this command first in order to be able to use the others
 bin/setup
 
 # run the tests
