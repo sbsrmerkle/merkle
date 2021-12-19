@@ -13,7 +13,7 @@ options = {
   hashing: 'merkle'
 }
 
-OptionParser.new do |opts|
+parser = OptionParser.new do |opts|
   opts.banner = "Usage: #{$PROGRAM_NAME} [options]"
 
   opts.on('--hashing [HASHING]', '', 'Specify the hashing method (merkle or test)') do |hashing_name|
@@ -24,7 +24,9 @@ OptionParser.new do |opts|
           'Specify the method (hashes_to_verify_block, height, level, print, root, verify)') do |method_name|
     options[:method] = String(method_name).downcase
   end
-end.parse!
+end
+
+parser.parse!
 
 def root(hashing)
   puts MerkleTree.new(read_blocks, hashing).root
@@ -119,7 +121,7 @@ begin
   when 'hashes_to_verify_block'
     hashes_to_verify_block(hashing)
   else
-    warn 'invalid method name'
+    warn parser.to_s
     exit(1)
   end
 rescue ArgumentError => e
